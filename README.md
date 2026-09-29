@@ -127,3 +127,7 @@ tests/                 unit tests and Playwright end-to-end tests
 ```
 
 Automating the portal may be against BRACU's IT rules. That's your call. The bot works one course at a time, waits for each result, and only clicks what you would click yourself.
+
+## License
+
+MIT, see [LICENSE](LICENSE). Not affiliated with or endorsed by BRAC University.
