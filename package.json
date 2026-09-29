@@ -1,0 +1,16 @@
+{
+  "name": "bracu-advising-bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Chrome extension that adds your courses on BRACU Connect self-registration at a scheduled time",
+  "scripts": {
+    "test": "node --test \"tests/*.test.js\"",
+    "test:e2e": "playwright test",
+    "mock": "node mock/server.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "ag-grid-community": "31.1.1",
+    "sweetalert2": "11.4.8"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Advising Bot",
+  "version": "0.1.0",
+  "description": "Adds your courses on BRACU Connect advising (Self Registration, Phase One, Phase Two) at a time you choose.",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage", "alarms", "notifications", "power"],
+  "host_permissions": [
+    "https://connect.bracu.ac.bd/*",
+    "https://sso.bracu.ac.bd/*",
+    "http://localhost/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_title": "Advising Bot",
+    "default_popup": "popup/popup.html",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png" }
+  },
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "content_scripts": [
+    {
+      "matches": ["https://connect.bracu.ac.bd/*", "http://localhost/student/*"],
+      "js": [
+        "shared/config.js",
+        "content/dom.js",
+        "content/portal.js",
+        "content/swal.js",
+        "content/runner.js",
+        "content/overlay.js",
+        "content/main.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

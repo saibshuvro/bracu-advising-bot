@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Advising Bot</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>Advising Bot</h1>
+    <span id="state" class="pill">Idle</span>
+  </header>
+
+  <section id="run" class="card" hidden>
+    <div id="runStatus" class="run-status"></div>
+    <ul id="runCourses" class="courses"></ul>
+    <details id="runLogBox">
+      <summary>Log</summary>
+      <ol id="runLog" class="log"></ol>
+    </details>
+  </section>
+
+  <form id="form" autocomplete="off" novalidate>
+    <label for="program">Program <span class="muted">as the Select Advising menu shows it, or empty to use the only open program</span></label>
+    <input id="program" spellcheck="false" placeholder="e.g. MENGGCSE(POSTGRADUATE)">
+
+    <label for="courses">Courses <span class="muted">one per line, no spaces: CSE705-[01] or CSE705</span></label>
+    <textarea id="courses" rows="5" spellcheck="false" placeholder="CSE705-[01]&#10;CSE706-[01]"></textarea>
+    <div id="coursesError" class="error" role="alert"></div>
+
+    <label for="startAt">Start at</label>
+    <input id="startAt" type="datetime-local" step="1">
+
+    <label class="check"><input id="dryRun" type="checkbox"> Dry run: open each confirm popup, then answer <b>No</b></label>
+
+    <details>
+      <summary>Advanced</summary>
+      <div class="grid">
+        <label>Reload every (s) until registration opens <input id="reloadIntervalSec" type="number" step="any" min="1" max="60"></label>
+        <label>Keep trying for (min) <input id="openWaitMin" type="number" step="any" min="1" max="60"></label>
+        <label>Wait for each result (s) <input id="resultTimeoutSec" type="number" step="any" min="5" max="120"></label>
+        <label>Tries per course <input id="maxAttempts" type="number" step="any" min="1" max="5"></label>
+        <label>Keep-alive reload every (min, 0 = off) <input id="keepAliveMin" type="number" step="any" min="0" max="60"></label>
+        <label>Pre-flight check (min before, 0 = off) <input id="preflightMin" type="number" step="any" min="0" max="10"></label>
+      </div>
+      <label class="check"><input id="bringToFront" type="checkbox"> Bring the advising tab to the front before starting</label>
+      <label class="check"><input id="acceptRepeatRetake" type="checkbox"> Answer Yes if the portal asks about a repeat / retake</label>
+    </details>
+
+    <div class="buttons">
+      <button type="button" id="check">Check page</button>
+      <button type="button" id="runNow">Run now</button>
+      <button type="submit" id="arm" class="primary">Arm</button>
+      <button type="button" id="stop" class="danger" hidden>Stop</button>
+    </div>
+    <div id="formError" class="error" role="alert"></div>
+    <div id="formNote" class="muted"></div>
+  </form>
+
+  <section id="report" class="card" hidden>
+    <h2>Check page</h2>
+    <ul id="reportList" class="checks"></ul>
+    <button type="button" id="copySnapshot">Copy debug snapshot</button>
+    <span id="copyDone" class="muted"></span>
+  </section>
+
+  <script src="../shared/config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
