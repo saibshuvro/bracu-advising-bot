@@ -1,5 +1,7 @@
 # Advising Bot
 
+[![Download Advising Bot v0.1.0](https://img.shields.io/badge/Download-Advising_Bot_v0.1.0-2ea44f?style=for-the-badge&logo=googlechrome&logoColor=white)](https://github.com/saibshuvro/bracu-advising-bot/releases/download/v0.1.0/bracu-advising-bot-v0.1.0.zip)
+
 A Chrome extension that runs BRACU Connect advising for you at a time you choose.
 It works on all three advising pages, which in the portal are the same page with a different title:
 
@@ -19,11 +21,16 @@ It never clicks **Confirm Advising** (only Self Registration has it), the red re
 
 ## Install
 
-1. Open `chrome://extensions` and turn on **Developer mode** (top right).
-2. Click **Load unpacked** and pick the `extension/` folder of this project.
-3. Pin the extension (puzzle icon → pin) so the popup is one click away.
+1. Download the zip with the button above. Don't unzip it.
+2. Open `chrome://extensions` and turn on **Developer mode** (top right).
+3. Drag the zip onto the page and drop it.
+4. Pin the extension (puzzle icon → pin) so the popup is one click away.
 
-After changing any file in `extension/`, press the reload icon on the extension's card, then reload the portal tab.
+If Chrome doesn't take the zip, unzip it, click **Load unpacked** and pick the unzipped folder.
+
+To update, first **Remove** the old Advising Bot on `chrome://extensions`, then drop the new zip. Every dropped zip installs as a separate copy, so enter your settings again afterwards.
+
+**From source:** click **Load unpacked** and pick the `extension/` folder of this project. After changing any file in `extension/`, press the reload icon on the extension's card, then reload the portal tab.
 
 ## Use it
 
